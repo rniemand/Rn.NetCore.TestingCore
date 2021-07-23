@@ -5,4 +5,8 @@
     <Version>5.0.0.100</Version>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Rn.NetCore.Common" Version="5.0.1.114" />
+  </ItemGroup>
+
 </Project>
