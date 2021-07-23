@@ -71,6 +71,6 @@ jobs:
         id: publish_nuget
         uses: rohith/publish-nuget@v2
         with:
-          PROJECT_FILE_PATH: src/Rn.NetCore.Common/Rn.NetCore.Common.csproj
+          PROJECT_FILE_PATH: src/Rn.NetCore.TestingCore/Rn.NetCore.TestingCore.csproj
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
