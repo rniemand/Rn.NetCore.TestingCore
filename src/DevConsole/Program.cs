@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using Rn.NetCore.Common.Logging;
+using Rn.NetCore.TestingCore.Builders;
 
 namespace DevConsole
 {
@@ -16,8 +17,19 @@ namespace DevConsole
     {
       ConfigureDI();
 
-      var logger = _serviceProvider.GetRequiredService<ILoggerAdapter<Program>>();
-      logger.Info("Hello World");
+      var configuration = new InMemoryConfigurationBuilder()
+        .WithSection("Test", test => test
+          .WithKey("Hello", "World")
+          .WithKey("Number", 1)
+          .WithSection("SubTest", subTest => subTest
+            .WithKey("Hello", "Again")
+          )
+          .WithKey("Here", "124")
+        )
+        .WithKey("Boolean", true)
+        .Build();
+
+      Console.WriteLine(configuration);
     }
 
 
