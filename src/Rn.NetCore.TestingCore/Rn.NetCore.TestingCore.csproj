@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>5.0.0.101</Version>
+    <Version>5.0.0.102</Version>
     <Authors>Rn.NetCore.TestingCore</Authors>
-    <AssemblyVersion>5.0.0.101</AssemblyVersion>
-    <FileVersion>5.0.0.101</FileVersion>
+    <AssemblyVersion>5.0.0.102</AssemblyVersion>
+    <FileVersion>5.0.0.102</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
