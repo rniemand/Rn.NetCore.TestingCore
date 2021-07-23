@@ -1,11 +1,13 @@
 ﻿using System;
 using System.IO;
+using DevConsole.DevTesting.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using Rn.NetCore.Common.Logging;
 using Rn.NetCore.TestingCore.Builders;
+using Rn.NetCore.TestingCore.Utils;
 
 namespace DevConsole
 {
@@ -17,19 +19,18 @@ namespace DevConsole
     {
       ConfigureDI();
 
-      var configuration = new InMemoryConfigurationBuilder()
-        .WithSection("Test", test => test
-          .WithKey("Hello", "World")
-          .WithKey("Number", 1)
-          .WithSection("SubTest", subTest => subTest
-            .WithKey("Hello", "Again")
-          )
-          .WithKey("Here", "124")
-        )
-        .WithKey("Boolean", true)
-        .Build();
+      var config = new SampleConfig
+      {
+        Name = "Top Level",
+        SubConfig = new SampleSubConfig
+        {
+          Number = 2,
+          Boolean = true,
+          Name = "Sub Level"
+        }
+      };
 
-      Console.WriteLine(configuration);
+      var generated = ConfigurationUtils.FromObject(config, "RnTesting");
     }
 
 
