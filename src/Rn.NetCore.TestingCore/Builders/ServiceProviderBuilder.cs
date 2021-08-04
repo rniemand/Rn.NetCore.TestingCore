@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using NSubstitute;
 using Rn.NetCore.Common.Logging;
-using Rn.NetCore.Common.Metrics;
+using Rn.NetCore.Common.Metrics.Interfaces;
 
 namespace Rn.NetCore.TestingCore.Builders
 {
