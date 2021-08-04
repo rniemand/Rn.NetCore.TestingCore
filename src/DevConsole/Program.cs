@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using Rn.NetCore.Common.Logging;
-using Rn.NetCore.TestingCore.Builders;
 using Rn.NetCore.TestingCore.Utils;
 
 namespace DevConsole

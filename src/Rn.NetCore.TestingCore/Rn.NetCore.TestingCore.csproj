@@ -2,15 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>5.0.0.103</Version>
+    <Version>5.0.0.104</Version>
     <Authors>Rn.NetCore.TestingCore</Authors>
-    <AssemblyVersion>5.0.0.103</AssemblyVersion>
-    <FileVersion>5.0.0.103</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="NSubstitute" Version="4.2.2" />
-    <PackageReference Include="Rn.NetCore.Common" Version="5.0.1.114" />
+    <PackageReference Include="Rn.NetCore.Common" Version="5.0.1.123" />
   </ItemGroup>
 
 </Project>
