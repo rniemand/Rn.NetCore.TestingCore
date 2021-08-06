@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using NSubstitute;
+using Rn.NetCore.Common.Metrics.Enums;
 using Rn.NetCore.Common.Metrics.Interfaces;
 
 namespace Rn.NetCore.TestingCore.Metrics
@@ -16,6 +17,24 @@ namespace Rn.NetCore.TestingCore.Metrics
     public SubmitMetricAsyncValidator ContainsTag(string tag, string expected)
     {
       _tags[tag] = expected;
+      return this;
+    }
+
+    public SubmitMetricAsyncValidator WithCustomTag1(string expected)
+    {
+      _tags[MetricTag.Tag1] = expected;
+      return this;
+    }
+
+    public SubmitMetricAsyncValidator WithCustomTag2(string expected)
+    {
+      _tags[MetricTag.Tag2] = expected;
+      return this;
+    }
+
+    public SubmitMetricAsyncValidator WithCustomTag3(string expected)
+    {
+      _tags[MetricTag.Tag3] = expected;
       return this;
     }
 
