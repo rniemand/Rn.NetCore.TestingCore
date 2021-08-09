@@ -40,7 +40,7 @@ namespace Rn.NetCore.TestingCore.Metrics
 
     private bool PassesValidation(IMetricBuilder builder)
     {
-      var metric = builder.GetRawMetric();
+      var metric = builder.Build();
 
       foreach (var (key, value) in _tags)
       {
