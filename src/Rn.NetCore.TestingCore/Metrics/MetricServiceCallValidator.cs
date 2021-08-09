@@ -6,12 +6,12 @@ using Rn.NetCore.Common.Metrics.Models;
 
 namespace Rn.NetCore.TestingCore.Metrics
 {
-  public class MetricSubmittedValidator
+  public class MetricServiceCallValidator
   {
     private readonly Dictionary<string, string> _tags;
     private readonly Dictionary<string, object> _fields;
 
-    public MetricSubmittedValidator()
+    public MetricServiceCallValidator()
     {
       _tags = new Dictionary<string, string>();
       _fields = new Dictionary<string, object>();
@@ -19,70 +19,79 @@ namespace Rn.NetCore.TestingCore.Metrics
 
 
     // Builder methods
-    public MetricSubmittedValidator ContainsTag(string tag, string expected)
+    public MetricServiceCallValidator ContainsTag(string tag, string expected)
     {
+      // TODO: [TESTS] (MetricServiceCallValidator.ContainsTag) Add tests
       _tags[tag] = expected;
       return this;
     }
 
-    public MetricSubmittedValidator WithCustomTag1(string expected)
+    public MetricServiceCallValidator WithCustomTag1(string expected)
     {
+      // TODO: [TESTS] (MetricServiceCallValidator.WithCustomTag1) Add tests
       _tags[MetricTag.Tag1] = expected;
       return this;
     }
 
-    public MetricSubmittedValidator WithCustomTag2(string expected)
+    public MetricServiceCallValidator WithCustomTag2(string expected)
     {
+      // TODO: [TESTS] (MetricServiceCallValidator.WithCustomTag2) Add tests
       _tags[MetricTag.Tag2] = expected;
       return this;
     }
 
-    public MetricSubmittedValidator WithCustomTag3(string expected)
+    public MetricServiceCallValidator WithCustomTag3(string expected)
     {
+      // TODO: [TESTS] (MetricServiceCallValidator.WithCustomTag3) Add tests
       _tags[MetricTag.Tag3] = expected;
       return this;
     }
 
-    public MetricSubmittedValidator WithCustomTag4(string expected)
+    public MetricServiceCallValidator WithCustomTag4(string expected)
     {
+      // TODO: [TESTS] (MetricServiceCallValidator.WithCustomTag4) Add tests
       _tags[MetricTag.Tag4] = expected;
       return this;
     }
 
-    public MetricSubmittedValidator WithField(string field, long expected)
+    public MetricServiceCallValidator WithField(string field, long expected)
     {
+      // TODO: [TESTS] (MetricServiceCallValidator.WithField) Add tests
       _fields[field] = expected;
       return this;
     }
 
-    public MetricSubmittedValidator WithField(string field, double expected)
+    public MetricServiceCallValidator WithField(string field, double expected)
     {
+      // TODO: [TESTS] (MetricServiceCallValidator.WithField) Add tests
       _fields[field] = expected;
       return this;
     }
 
-    public MetricSubmittedValidator WithField(string field, float expected)
+    public MetricServiceCallValidator WithField(string field, float expected)
     {
+      // TODO: [TESTS] (MetricServiceCallValidator.WithField) Add tests
       _fields[field] = expected;
       return this;
     }
 
-    public MetricSubmittedValidator WithField(string field, int expected)
+    public MetricServiceCallValidator WithField(string field, int expected)
     {
+      // TODO: [TESTS] (MetricServiceCallValidator.WithField) Add tests
       _fields[field] = expected;
       return this;
     }
 
 
     // Finalization methods
-    public void VerifySubmitBuilderAsync(IMetricService metricService)
+    public void CalledForSubmitBuilderAsync(IMetricService metricService)
     {
       metricService.Received(1).SubmitBuilderAsync(
         Arg.Is<IMetricBuilder>(b => PassesValidation(b))
       );
     }
 
-    public void VerifySubmitBuilder(IMetricService metricService)
+    public void CalledForSubmitBuilder(IMetricService metricService)
     {
       metricService.Received(1).SubmitBuilder(
         Arg.Is<IMetricBuilder>(b => PassesValidation(b))
@@ -93,7 +102,7 @@ namespace Rn.NetCore.TestingCore.Metrics
     // Internal methods
     private bool PassesTagConstraints(CoreMetric metric)
     {
-      // TODO: [TESTS] (MetricSubmittedValidator.PassesTagConstraints) Add tests
+      // TODO: [TESTS] (MetricServiceCallValidator.PassesTagConstraints) Add tests
       if (metric == null)
         return false;
 
@@ -111,7 +120,7 @@ namespace Rn.NetCore.TestingCore.Metrics
 
     private bool PassesFieldsConstraints(CoreMetric metric)
     {
-      // TODO: [TESTS] (MetricSubmittedValidator.PassesFieldsConstraints) Add tests
+      // TODO: [TESTS] (MetricServiceCallValidator.PassesFieldsConstraints) Add tests
       if (metric == null)
         return false;
 
@@ -134,7 +143,7 @@ namespace Rn.NetCore.TestingCore.Metrics
 
     private bool PassesValidation(IMetricBuilder builder)
     {
-      // TODO: [TESTS] (MetricSubmittedValidator.PassesValidation) Add tests
+      // TODO: [TESTS] (MetricServiceCallValidator.PassesValidation) Add tests
       var metric = builder.Build();
 
       return PassesTagConstraints(metric) &&
