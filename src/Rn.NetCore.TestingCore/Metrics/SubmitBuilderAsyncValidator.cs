@@ -5,34 +5,34 @@ using Rn.NetCore.Common.Metrics.Interfaces;
 
 namespace Rn.NetCore.TestingCore.Metrics
 {
-  public class SubmitMetricAsyncValidator
+  public class SubmitBuilderAsyncValidator
   {
     private readonly Dictionary<string, string> _tags;
 
-    public SubmitMetricAsyncValidator()
+    public SubmitBuilderAsyncValidator()
     {
       _tags = new Dictionary<string, string>();
     }
 
-    public SubmitMetricAsyncValidator ContainsTag(string tag, string expected)
+    public SubmitBuilderAsyncValidator ContainsTag(string tag, string expected)
     {
       _tags[tag] = expected;
       return this;
     }
 
-    public SubmitMetricAsyncValidator WithCustomTag1(string expected)
+    public SubmitBuilderAsyncValidator WithCustomTag1(string expected)
     {
       _tags[MetricTag.Tag1] = expected;
       return this;
     }
 
-    public SubmitMetricAsyncValidator WithCustomTag2(string expected)
+    public SubmitBuilderAsyncValidator WithCustomTag2(string expected)
     {
       _tags[MetricTag.Tag2] = expected;
       return this;
     }
 
-    public SubmitMetricAsyncValidator WithCustomTag3(string expected)
+    public SubmitBuilderAsyncValidator WithCustomTag3(string expected)
     {
       _tags[MetricTag.Tag3] = expected;
       return this;
@@ -56,7 +56,7 @@ namespace Rn.NetCore.TestingCore.Metrics
 
     public void Run(IMetricService metricService)
     {
-      metricService.Received(1).SubmitMetricAsync(
+      metricService.Received(1).SubmitBuilderAsync(
         Arg.Is<IMetricBuilder>(b => PassesValidation(b))
       );
     }
