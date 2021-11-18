@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using NSubstitute;
-using Rn.NetCore.Common.Metrics.Enums;
-using Rn.NetCore.Common.Metrics.Interfaces;
-using Rn.NetCore.Common.Metrics.Models;
+using Rn.NetCore.Metrics;
+using Rn.NetCore.Metrics.Builders;
+using Rn.NetCore.Metrics.Enums;
+using Rn.NetCore.Metrics.Models;
 
 namespace Rn.NetCore.TestingCore.Metrics
 {
