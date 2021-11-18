@@ -12,7 +12,7 @@
     <PackageReference Include="NLog" Version="4.7.12" />
     <PackageReference Include="NLog.Extensions.Logging" Version="1.7.4" />
     <PackageReference Include="Nlog.RabbitMQ.Target" Version="2.7.7" />
-    <PackageReference Include="Rn.NetCore.Common" Version="5.0.1.151" />
+    <PackageReference Include="Rn.NetCore.Common" Version="5.0.1.152" />
   </ItemGroup>
 
   <ItemGroup>
