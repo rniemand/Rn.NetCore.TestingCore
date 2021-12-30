@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using NSubstitute;
 using Rn.NetCore.Common.Logging;
 using Rn.NetCore.Metrics;
@@ -15,15 +16,15 @@ namespace Rn.NetCore.TestingCore.Builders
       _provider = Substitute.For<IServiceProvider>();
     }
 
-    public ServiceProviderBuilder WithLogger<TLogger>(ILoggerAdapter<TLogger> logger = null)
+    public ServiceProviderBuilder WithLogger<TLogger>(ILogger<TLogger> logger = null)
     {
       _provider
         .GetService(typeof(ILoggerAdapter<TLogger>))
-        .Returns(logger ?? Substitute.For<ILoggerAdapter<TLogger>>());
+        .Returns(logger ?? Substitute.For<ILogger<TLogger>>());
 
       return this;
     }
-    
+
     public ServiceProviderBuilder WithMetrics(IMetricService metrics = null)
     {
       _provider
@@ -32,7 +33,7 @@ namespace Rn.NetCore.TestingCore.Builders
 
       return this;
     }
-    
+
     public ServiceProviderBuilder WithConfiguration(IConfiguration configuration = null)
     {
       _provider
@@ -41,7 +42,7 @@ namespace Rn.NetCore.TestingCore.Builders
 
       return this;
     }
-    
+
     public ServiceProviderBuilder WithService<TService>() where TService : class
     {
       _provider
