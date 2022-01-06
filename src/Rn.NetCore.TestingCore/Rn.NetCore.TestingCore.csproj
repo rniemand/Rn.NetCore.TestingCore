@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>6.0.0.102</Version>
+    <Version>6.0.0.103</Version>
     <Authors>Rn.NetCore.TestingCore</Authors>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="NSubstitute" Version="4.2.2" />
-    <PackageReference Include="Rn.NetCore.Common" Version="6.0.0.106" />
-    <PackageReference Include="Rn.NetCore.Metrics" Version="6.0.0.101" />
+    <PackageReference Include="Rn.NetCore.Common" Version="6.0.0.107" />
+    <PackageReference Include="Rn.NetCore.Metrics" Version="6.0.0.102" />
   </ItemGroup>
 
 </Project>
