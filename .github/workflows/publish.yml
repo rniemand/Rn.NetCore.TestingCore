@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - master
+
+env:
+  PROJECT_NAME: "Rn.NetCore.TestingCore"
+
 jobs:
   build:
     name: Build and Publish
@@ -17,15 +21,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-dotnet@v1
-        name: Install .net 5.x
-        with:
-          dotnet-version: '5.0.x'
-
-      - uses: actions/setup-dotnet@v1
+      - uses: actions/setup-dotnet@v2
         name: Install .net 6.x
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: 6.0.x
 
       - name: Cache SonarQube packages
         uses: actions/cache@v1
@@ -57,7 +56,7 @@ jobs:
           $rootDir         = Join-Path $env:GITHUB_WORKSPACE "\";
           $artifactsDir    = Join-Path $rootDir "artifacts\";
           $sqReportPaths   = ($artifactsDir + "t1-coverage/**/coverage.opencover.xml");
-          $projectName     = "Rn.NetCore.TestingCore";
+          $projectName     = "${{ env.PROJECT_NAME }}";
           
           $sonarQubeParams = @(
             "/k:`"${{ secrets.SONAR_PROJECT }}`"",
@@ -73,10 +72,9 @@ jobs:
           
           # Fin.
 
-      - name: Publish Rn.NetCore.TestingCore
-        id: publish_nuget
-        uses: rohith/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/Rn.NetCore.TestingCore/Rn.NetCore.TestingCore.csproj
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Package
+        run: dotnet pack -c Release -o . src/${{ env.PROJECT_NAME }}/${{ env.PROJECT_NAME }}.csproj
+
+      - name: Publish
+        run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
           
