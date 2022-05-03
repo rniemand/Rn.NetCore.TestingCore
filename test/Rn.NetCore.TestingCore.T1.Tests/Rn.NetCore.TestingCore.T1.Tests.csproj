@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Rn.NetCore.TestingCore\Rn.NetCore.TestingCore.csproj" />
+    <ProjectReference Include="..\..\src\Rn.NetCore.TestingCore\Rn.NetCore.TestingCore.csproj" />
   </ItemGroup>
 
 </Project>
